@@ -1,2 +1,2 @@
-# goit-markup-hw-06
-завдання 6
+# goit-markup-hw-03
+studying
