@@ -258,9 +258,17 @@ header {
   margin-right: auto;
 }
 
+.form-icon {
+  display: inline-block;
+  position: absolute;
+
+  bottom: 14px;
+  left: 15px;
+}
+
 .form-filed {
-  outline: 1px solid blue;
   display: flex;
+  position: relative;
   flex-direction: column;
   margin-bottom: 10px;
 }
@@ -268,10 +276,20 @@ header {
 .form-filed input {
   margin: 0px;
   padding: 11px 12px;
+  padding-left: 40px;
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
 }
+
+.form-input:focus {
+  border: 1px solid var(--accent-color);
+}
+
+.form-input:focus ~ .form-icon {
+  fill: #2196f3;
+}
+
 .form-filed label {
   margin-bottom: 4px;
   text-align: left;
@@ -287,31 +305,71 @@ header {
 
 .form-filed textarea {
   padding: 11px 12px;
-}
-.accept input[type="checkbox"] {
-  width: 16px;
-  height: 15px;
-  color: #212121;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
 
-  margin-right: 8px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: var(--title-text-color);
+}
+
+.comment::placeholder {
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.icon-check {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  fill: transparent;
+  display: inline-block;
+  border: 2px solid #212121;
+  border-radius: 2px;
+}
+
+.checkbox:checked + .icon-check {
+  fill: var(--body-background-color);
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 .accept {
+  color: var(--title-text-color);
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
-  letter-spacing: 0.03em;
   margin-bottom: 30px;
 
-  display: flex;
-  align-items: center;
+  display: inline-block;
+  position: relative;
+  padding-left: 20px;
 }
 
 .a-accept {
   color: var(--accent-color);
   text-decoration: underline;
+
+  margin-left: 5px;
 }
 
 .comment {
@@ -320,10 +378,10 @@ header {
   margin-bottom: 20px;
 }
 
-.form .button {
-  min-width: 200px;
-  height: 50px;
+.comment:focus {
+  border: 1px solid var(--accent-color);
 }
+
 .titile-modal {
   margin-top: 40px;
   margin-right: 40px;
@@ -692,8 +750,7 @@ header {
   border-radius: 4px;
 }
 
-form .button {
-  display: flex;
+.form .button {
   align-items: center;
   padding: 10px 28px;
 
